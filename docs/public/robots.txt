@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://learn.kanaksan.com/11/physics/sitemap.xml

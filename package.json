@@ -1,0 +1,22 @@
+{
+  "name": "physics-concept-companion",
+  "version": "0.1.0",
+  "description": "Class 11 Physics Concept Companion - NCERT (PU Karnataka), mobile-first interactive learning docs built on VitePress + Vue.",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:dev:lan": "vitepress dev docs --host 0.0.0.0",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.28.19",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.13"
+  },
+  "dependencies": {
+    "three": "^0.184.0"
+  }
+}

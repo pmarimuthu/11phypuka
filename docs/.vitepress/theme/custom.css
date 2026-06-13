@@ -1,0 +1,152 @@
+/* Physics Companion — mobile-first theme + animated icons */
+
+:root {
+  --vp-c-brand-1: #2f6fd0;
+  --vp-c-brand-2: #3a7bd5;
+  --vp-c-brand-3: #5a92e0;
+  --pc-idea:    #e0a21e;   /* amber      — core concept */
+  --pc-formula: #8a5cf6;   /* purple     — maths/formula */
+  --pc-real:    #1f9d6b;   /* green      — real world */
+  --pc-try:     #ea580c;   /* orange-red — hands-on activity */
+  --pc-whatif:  #d04f8c;   /* pink       — thought experiment */
+  --pc-visual:  #0891b2;   /* cyan       — animation/visualise */
+}
+
+@media (max-width: 768px) {
+  .vp-doc h1 { font-size: 1.7rem; line-height: 1.25; }
+  .vp-doc h2 { font-size: 1.3rem; }
+  .vp-doc p, .vp-doc li { font-size: 1.02rem; line-height: 1.7; }
+}
+
+/* ---------- Concept blocks ---------- */
+.pc-block { border-radius: 14px; margin: 1.2rem 0; border: 1px solid var(--vp-c-divider); border-left: 5px solid var(--vp-c-brand-1); background: var(--vp-c-bg-soft); overflow: hidden; }
+.pc-head { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.1rem 0.2rem; }
+.pc-label { font-weight: 700; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.9; }
+.pc-body { padding: 0 1.1rem 0.6rem; }
+.pc-body > :first-child { margin-top: 0.2rem; }
+.pc-ico { display: inline-flex; width: 26px; height: 26px; flex: 0 0 26px; }
+.pc-ico svg { width: 100%; height: 100%; }
+.pc-idea { border-left-color: var(--pc-idea); }
+.pc-formula { border-left-color: var(--pc-formula); }
+.pc-real { border-left-color: var(--pc-real); }
+.pc-try { border-left-color: var(--pc-try); }
+.pc-whatif { border-left-color: var(--pc-whatif); }
+.pc-ico-idea { color: var(--pc-idea); }
+.pc-ico-formula { color: var(--pc-formula); }
+.pc-ico-real { color: var(--pc-real); }
+.pc-ico-try { color: var(--pc-try); }
+.pc-ico-whatif { color: var(--pc-whatif); }
+.pc-ico-idea svg { transform-origin: center; animation: pc-glow 2.4s ease-in-out infinite; }
+.pc-ico-formula svg { animation: pc-bob 3s ease-in-out infinite; }
+.pc-ico-real svg { transform-origin: center; animation: pc-sway 4s ease-in-out infinite; }
+.pc-ico-try svg { transform-origin: 50% 90%; animation: pc-wiggle 2.2s ease-in-out infinite; }
+.pc-ico-whatif svg { animation: pc-float 2.8s ease-in-out infinite; }
+@keyframes pc-glow { 0%,100% { opacity: 0.65; filter: drop-shadow(0 0 0px currentColor); transform: scale(1); } 50% { opacity: 1; filter: drop-shadow(0 0 5px currentColor); transform: scale(1.08); } }
+@keyframes pc-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+@keyframes pc-sway { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+@keyframes pc-wiggle { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(-9deg); } 75% { transform: rotate(9deg); } }
+@keyframes pc-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+/* ---------- Quiz ---------- */
+.pc-quiz { border: 1px solid var(--vp-c-divider); border-radius: 14px; padding: 1rem 1.1rem 1.1rem; margin: 1.6rem 0; background: var(--vp-c-bg-soft); }
+.pc-quiz-head { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.2rem; }
+.pc-quiz-head h4 { margin: 0; }
+.pc-qmark { width: 24px; height: 24px; color: var(--vp-c-brand-2); display: inline-flex; animation: pc-pulse 1.8s ease-in-out infinite; }
+.pc-qmark svg { width: 100%; height: 100%; }
+@keyframes pc-pulse { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.18); opacity: 1; } }
+.pc-q { font-weight: 600; margin: 0.5rem 0 0.8rem; }
+.pc-quiz ul { list-style: none; padding: 0; margin: 0; }
+.pc-quiz li { margin: 0.5rem 0; }
+.pc-opt { display: flex; align-items: center; gap: 0.7rem; width: 100%; text-align: left; padding: 0.7rem 0.9rem; border-radius: 11px; border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg); cursor: pointer; font-size: 1rem; transition: background 0.18s, border-color 0.18s, transform 0.12s; }
+.pc-opt:hover { border-color: var(--vp-c-brand-2); transform: translateX(2px); }
+.pc-opt:disabled { cursor: default; }
+.pc-opt:disabled:hover { transform: none; }
+.pc-badge { flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider); }
+.pc-opt-text { flex: 1; }
+.pc-opt-ico { width: 20px; height: 20px; flex: 0 0 20px; display: inline-flex; }
+.pc-opt-ico svg { width: 100%; height: 100%; }
+.pc-opt.correct { border-color: var(--pc-real); background: rgba(31,157,107,0.12); animation: pc-pop 0.4s ease; }
+.pc-opt.correct .pc-badge { background: var(--pc-real); color: #fff; border-color: var(--pc-real); }
+.pc-opt.wrong { border-color: #d05050; background: rgba(208,80,80,0.12); animation: pc-shake 0.4s ease; }
+.pc-opt.wrong .pc-badge { background: #d05050; color: #fff; border-color: #d05050; }
+@keyframes pc-pop { 0% { transform: scale(1); } 45% { transform: scale(1.035); } 100% { transform: scale(1); } }
+@keyframes pc-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-5px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+.pc-check path { stroke-dasharray: 30; stroke-dashoffset: 30; animation: pc-draw 0.45s ease forwards; }
+@keyframes pc-draw { to { stroke-dashoffset: 0; } }
+.pc-explain { margin-top: 0.9rem; padding: 0.75rem 0.9rem; border-radius: 11px; background: var(--vp-c-bg); border: 1px dashed var(--vp-c-divider); animation: pc-fade 0.35s ease; }
+@keyframes pc-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Textbook reference chips ---------- */
+.pc-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.2rem 0 1.2rem; }
+.pc-meta .chip { font-size: 0.8rem; padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider); }
+
+/* ---------- Exam-Hall Quick Notes (collapsible) ---------- */
+.exam-notes { margin: 1.8rem 0 1rem; border: 1px solid var(--vp-c-divider); border-left: 5px solid #b45309; border-radius: 14px; background: var(--vp-c-bg-soft); overflow: hidden; }
+.exam-notes .en-summary { display: flex; align-items: center; gap: 0.55rem; padding: 0.75rem 1rem; cursor: pointer; font-weight: 700; color: #b45309; list-style: none; user-select: none; }
+.exam-notes .en-summary::-webkit-details-marker { display: none; }
+.exam-notes .en-ico { width: 22px; height: 22px; display: inline-flex; color: #b45309; }
+.exam-notes .en-ico svg { width: 100%; height: 100%; }
+.exam-notes .en-title { flex: 1; font-size: 0.95rem; letter-spacing: 0.01em; }
+.exam-notes .en-chev { font-size: 0.7rem; transition: transform 0.2s; color: #b45309; }
+.exam-notes[open] .en-chev { transform: rotate(90deg); }
+.exam-notes .en-body { padding: 0.2rem 1.1rem 0.6rem; }
+.exam-notes .en-body ul { margin: 0.4rem 0; }
+.exam-notes .en-body li { margin: 0.3rem 0; line-height: 1.55; }
+
+/* ---------- Learn More — external references (collapsible) ---------- */
+.ext-refs { margin: 1rem 0 1.4rem; border: 1px solid var(--vp-c-divider); border-left: 5px solid var(--vp-c-brand-1); border-radius: 14px; background: var(--vp-c-bg-soft); overflow: hidden; }
+.ext-refs .er-summary { display: flex; align-items: center; gap: 0.55rem; padding: 0.75rem 1rem; cursor: pointer; font-weight: 700; color: var(--vp-c-brand-1); list-style: none; user-select: none; }
+.ext-refs .er-summary::-webkit-details-marker { display: none; }
+.ext-refs .er-ico { width: 22px; height: 22px; display: inline-flex; color: var(--vp-c-brand-1); }
+.ext-refs .er-ico svg { width: 100%; height: 100%; }
+.ext-refs .er-title { flex: 1; font-size: 0.95rem; letter-spacing: 0.01em; }
+.ext-refs .er-chev { font-size: 0.7rem; transition: transform 0.2s; color: var(--vp-c-brand-1); }
+.ext-refs[open] .er-chev { transform: rotate(90deg); }
+.ext-refs .er-body { padding: 0.2rem 1.1rem 0.6rem; }
+.ext-refs .er-body ul { margin: 0.4rem 0; }
+.ext-refs .er-body li { margin: 0.4rem 0; line-height: 1.5; }
+
+/* ---------- Hero title gradient animation ---------- */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    #2f6fd0 0%,
+    #7c3aed 25%,
+    #06b6d4 50%,
+    #d946ef 75%,
+    #2f6fd0 100%
+  );
+}
+
+.VPHero .name,
+.VPHero .clip {
+  background: linear-gradient(
+    120deg,
+    #2f6fd0 0%,
+    #7c3aed 25%,
+    #06b6d4 50%,
+    #d946ef 75%,
+    #2f6fd0 100%
+  );
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: heroShimmer 5s ease infinite;
+}
+
+@keyframes heroShimmer {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ---------- Respect reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pc-ico svg, .pc-qmark, .pc-opt.correct, .pc-opt.wrong, .pc-check path, .pc-explain,
+  .VPHero .name, .VPHero .clip { animation: none !important; }
+  .pc-check path { stroke-dashoffset: 0; }
+  .VPHero .name, .VPHero .clip { background-position: 0% 50%; }
+}
