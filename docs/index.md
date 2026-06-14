@@ -1,29 +1,5 @@
 ---
-layout: home
+customHome: true
 title: "Class 11 Physics Notes — NCERT Karnataka PU JEE KCET"
 description: "Free Class 11 Physics notes — concept first, formula second. Interactive animations, home experiments, quick quizzes. NCERT Karnataka PU, JEE Main, JEE Advanced, KCET."
-
-hero:
-  name: Physics Companion
-  text: Class 11 · NCERT
-  tagline: Concept first. Formula second. One real example. <br> JEE Main | JEE Advanced | KCET/KEA | UCEED.
-  actions:
-    - theme: brand
-      text: Start Learning →
-      link: /chapters/
-
-features:
-  - icon: 💡
-    title: Concept before formula
-    details: Plain English first, then the math!
-  - icon: 🌍
-    title: Grounded in real life
-    details: One everyday example per concept — buses, cricket, cooking.
-  - icon: ✅
-    title: Check yourself
-    details: A quick question on every page with instant feedback.
-  - icon: 🎬
-    title: Interactive animations
-    details: Live physics simulations — projectile motion, particle systems, 3D scenes.
-
 ---

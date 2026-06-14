@@ -7,7 +7,6 @@ import ConceptHero from './components/ConceptHero.vue'
 import Predict from './components/Predict.vue'
 import './custom.css'
 
-// Global components are usable directly inside any markdown page.
 export default {
   extends: DefaultTheme,
   Layout,

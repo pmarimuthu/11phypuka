@@ -1,15 +1,18 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { onMounted, onUnmounted, watch } from 'vue'
-import { useRoute } from 'vitepress'
+import { useRoute, useData } from 'vitepress'
+import HomeLanding from './components/HomeLanding.vue'
+import AppFooter from './components/AppFooter.vue'
+import SidebarToggle from './components/SidebarToggle.vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
+const { frontmatter } = useData()
 
 let observer = null
 let isClosing = false
 
-// Collapse all level-0 sidebar groups except the one that contains an active link
 function collapseOthers() {
   if (isClosing) return
   const sidebar = document.querySelector('.VPSidebar')
@@ -17,7 +20,6 @@ function collapseOthers() {
 
   isClosing = true
   sidebar.querySelectorAll('.VPSidebarItem.level-0.has-children').forEach(group => {
-    // Keep the group that has the currently active link
     if (group.querySelector('a.is-active')) return
     if (group.classList.contains('collapsed')) return
     const btn = group.querySelector(':scope > .item > button.caret')
@@ -37,7 +39,6 @@ function setupAccordion() {
 
     for (const mut of mutations) {
       const el = mut.target
-      // Detect a level-0 group that just lost the 'collapsed' class (caret clicked)
       if (
         el.classList.contains('VPSidebarItem') &&
         el.classList.contains('level-0') &&
@@ -65,9 +66,7 @@ function setupAccordion() {
   })
 }
 
-// Collapse other chapters whenever the route changes (link click navigation)
 watch(() => route.path, () => {
-  // Give VitePress time to update the sidebar active state
   setTimeout(collapseOthers, 80)
 })
 
@@ -81,5 +80,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Layout />
+  <HomeLanding v-if="frontmatter.customHome" />
+  <template v-else>
+    <!-- SidebarToggle rendered here (position:fixed) — not inside a VitePress slot -->
+    <SidebarToggle />
+    <Layout>
+      <template #layout-bottom>
+        <AppFooter />
+      </template>
+    </Layout>
+  </template>
 </template>

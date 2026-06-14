@@ -192,7 +192,6 @@ export default defineConfig({
     search: { provider: 'local' },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'All Chapters', link: '/chapters/' }
     ],
     sidebar: [
       {

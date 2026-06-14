@@ -1,5 +1,39 @@
 /* Physics Companion — mobile-first theme + animated icons */
 
+/* ── Sidebar toggle (desktop ≥960px only) ── */
+
+/*
+ * Strategy: override --vp-sidebar-width to 0 when collapsed.
+ * VitePress uses this variable internally for both sidebar width
+ * AND content padding-left, so one override handles both.
+ * Use a separate --pc-sb-w for the translation so it doesn't inherit 0.
+ */
+:root { --pc-sb-w: 272px; }
+
+@media (min-width: 960px) {
+  /* Collapsed: zero out the width variable → content auto-reflows */
+  body.pc-sb-closed {
+    --vp-sidebar-width: 0px;
+  }
+  /* Slide sidebar off-screen using the fixed pixel value */
+  body.pc-sb-closed .VPSidebar {
+    transform: translateX(calc(-1 * var(--pc-sb-w))) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Animate only after first user click (pc-sb-anim set in JS) */
+  body.pc-sb-anim .VPSidebar {
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0.28s;
+  }
+  /* When opening: visibility restores immediately, then slides in */
+  body.pc-sb-anim:not(.pc-sb-closed) .VPSidebar {
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear;
+  }
+}
+
 :root {
   --vp-c-brand-1: #2f6fd0;
   --vp-c-brand-2: #3a7bd5;
