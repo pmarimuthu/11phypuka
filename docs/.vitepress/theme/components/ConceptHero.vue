@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import WasmHero from './WasmHero.vue'
 import FeelHero from './FeelHero.vue'
+import MeasurementLab from './labs/MeasurementLab.vue'
+import SpeedDistanceLab from './labs/SpeedDistanceLab.vue'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps<{ type: string; caption?: string; open?: boolean }>()
@@ -57,7 +59,6 @@ const WASM_TYPES = new Set(['si-units', 'projectile-motion'])
 const FEEL_TYPES = new Set(['si-units', 'significant-figures', 'dimensions', 'dimensional-analysis'])
 const hasWasm = computed(() => WASM_TYPES.has(props.type))
 const has3D   = computed(() => props.type === 'projectile-motion')
-const hasFeel = computed(() => FEEL_TYPES.has(props.type))
 
 function onKey(e: KeyboardEvent) {
   if (e.key === 'Escape' && isFullscreen.value) isFullscreen.value = false
@@ -91,15 +92,40 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
         </button>
       </div>
       <div v-show="isOpen" class="ch-body">
-        <div v-if="hasWasm || hasFeel" class="ch-tabs">
+        <div class="ch-tabs">
           <button :class="['ch-tab', { active: tab === 'svg' }]" @click="tab = 'svg'">Watch</button>
-          <button v-if="hasWasm" :class="['ch-tab', { active: tab === 'wasm' }]" @click="tab = 'wasm'">Explore</button>
+          <button :class="['ch-tab', { active: tab === 'wasm' }]" @click="tab = 'wasm'">Explore</button>
           <button v-if="has3D" :class="['ch-tab', { active: tab === 'three' }]" @click="tab = 'three'">3D Scene</button>
           <button v-if="hasFeel" :class="['ch-tab', { active: tab === 'feel' }]" @click="tab = 'feel'">Feel</button>
+          <button :class="['ch-tab', { active: tab === 'lab' }]" @click="tab = 'lab'">Lab</button>
         </div>
       <WasmHero v-if="hasWasm && (tab === 'wasm' || tab === 'three')"
                 :type="type" :active-tab="tab" />
+      <div v-else-if="tab === 'wasm' || tab === 'three'" class="visualise-empty">No Content</div>
+
       <FeelHero v-if="hasFeel && tab === 'feel'" :type="type" />
+
+      <MeasurementLab
+        v-if="
+          tab === 'lab' &&
+          type === 'si-units'
+        "
+      />
+
+      <SpeedDistanceLab
+        v-else-if="
+          tab === 'lab' &&
+          type === 'velocity-speed'
+        "
+      />
+
+      <div
+        v-else-if="tab === 'lab'"
+        class="visualise-empty"
+      >
+        No Content
+      </div>
+
       <svg v-show="tab === 'svg'" viewBox="0 0 360 150" role="img" :aria-label="cap" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <marker id="ahR" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#e2483d"/></marker>
@@ -1545,5 +1571,11 @@ figcaption {
 .ch-card--full .wasm-hero {
   flex: 1;
   width: 100% !important;
+}
+.visualise-empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--vp-c-text-2);
+  font-size: 0.85rem;
 }
 </style>
