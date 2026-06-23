@@ -16,7 +16,8 @@ Work through the concepts in order. Each page follows the same plan: the idea in
 2. [Gravitational Field & Potential](./gravitational-field) — describing gravity in space.
 3. [Escape Velocity](./escape-velocity) — the speed needed to leave a planet's gravity.
 4. [Satellites & Orbital Motion](./satellites) — how and why satellites orbit.
-5. [Kepler's Laws](./keplers-laws) — the rules planets obey.
+5. [Mission: Launch a Satellite](./mission-launch-a-satellite) — an interactive launch simulator. Discover orbit, crash and escape yourself before the formulas.
+6. [Kepler's Laws](./keplers-laws) — the rules planets obey.
 
 ## The one-line summary
 

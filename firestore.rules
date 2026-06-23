@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Analytics summary — public read, public write (append-only counters)
+    match /analytics/{doc} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Per-device visitor records — public read/write (fingerprint is the key)
+    match /visitors/{fingerprint} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Everything else — deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

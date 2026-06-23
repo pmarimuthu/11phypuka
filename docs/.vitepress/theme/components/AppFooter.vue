@@ -1,7 +1,12 @@
+<script setup lang="ts">
+import VisitorCounter from './VisitorCounter.vue'
+</script>
+
 <template>
   <footer class="app-footer">
     <div class="af-inner">
       <div class="af-copy">© 2025 Physics Companion · For students By students</div>
+      <VisitorCounter />
     </div>
   </footer>
 </template>

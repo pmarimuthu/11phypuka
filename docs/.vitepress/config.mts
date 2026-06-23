@@ -280,6 +280,7 @@ export default defineConfig({
           { text: 'Gravitational Field & Potential', link: '/chapters/07-gravitation/gravitational-field' },
           { text: 'Escape Velocity', link: '/chapters/07-gravitation/escape-velocity' },
           { text: 'Satellites & Orbital Motion', link: '/chapters/07-gravitation/satellites' },
+          { text: 'Mission: Launch a Satellite', link: '/chapters/07-gravitation/mission-launch-a-satellite' },
           { text: "Kepler's Laws", link: '/chapters/07-gravitation/keplers-laws' }
         ]
       },
