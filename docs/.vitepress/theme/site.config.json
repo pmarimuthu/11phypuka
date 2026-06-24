@@ -1,0 +1,105 @@
+{
+  "site": {
+    "name": "Student Companion",
+    "copyrightYear": 2026,
+    "copyrightSuffix": "For students By students"
+  },
+  "board": {
+    "label": "CBSE",
+    "fullLabel": "CBSE Board"
+  },
+  "classes": [
+    { "id": "11", "label": "11", "fullLabel": "Class 11", "active": true },
+    { "id": "12", "label": "12", "fullLabel": "Class 12", "active": false }
+  ],
+  "fonts": [
+    {
+      "id": "inter",
+      "name": "Inter",
+      "description": "Clean & modern — best for UI-heavy reading",
+      "family": "'Inter', system-ui, sans-serif",
+      "googleUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+      "active": true
+    },
+    {
+      "id": "merriweather",
+      "name": "Merriweather",
+      "description": "Serif — best for long-form reading comprehension",
+      "family": "'Merriweather', Georgia, serif",
+      "googleUrl": "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap",
+      "active": false
+    },
+    {
+      "id": "nunito",
+      "name": "Nunito",
+      "description": "Rounded & friendly — great for younger learners",
+      "family": "'Nunito', system-ui, sans-serif",
+      "googleUrl": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap",
+      "active": false
+    },
+    {
+      "id": "lato",
+      "name": "Lato",
+      "description": "Professional & universal — neutral, highly legible",
+      "family": "'Lato', system-ui, sans-serif",
+      "googleUrl": "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+      "active": false
+    }
+  ],
+  "subjects": [
+    {
+      "id": "physics",
+      "name": "Physics",
+      "shortCode": "Phy",
+      "icon": "⚛️",
+      "iconKey": "physics",
+      "color": "#3b82f6",
+      "colorLight": "#93c5fd",
+      "path": "/physics/",
+      "chaptersPath": "/physics/chapters/",
+      "status": "active"
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry",
+      "shortCode": "Che",
+      "icon": "🧪",
+      "iconKey": "chemistry",
+      "color": "#10b981",
+      "colorLight": "#6ee7b7",
+      "path": "/chemistry/",
+      "chaptersPath": "/chemistry/chapters/",
+      "status": "coming-soon"
+    },
+    {
+      "id": "maths",
+      "name": "Mathematics",
+      "shortCode": "Mat",
+      "icon": "📐",
+      "iconKey": "maths",
+      "color": "#8b5cf6",
+      "colorLight": "#c4b5fd",
+      "path": "/maths/",
+      "chaptersPath": "/maths/chapters/",
+      "status": "coming-soon"
+    },
+    {
+      "id": "biology",
+      "name": "Biology",
+      "shortCode": "Bio",
+      "icon": "🧬",
+      "iconKey": "biology",
+      "color": "#22c55e",
+      "colorLight": "#86efac",
+      "path": "/biology/",
+      "chaptersPath": "/biology/chapters/",
+      "status": "coming-soon"
+    }
+  ],
+  "header": {
+    "widgets": ["subjectSwitcher", "chaptersLink", "ctaButton"]
+  },
+  "footer": {
+    "widgets": ["copyright", "visitorCounter"]
+  }
+}

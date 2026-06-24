@@ -3,8 +3,13 @@ import DefaultTheme from 'vitepress/theme'
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useData } from 'vitepress'
 import HomeLanding from './components/HomeLanding.vue'
+import StudentLanding from './components/StudentLanding.vue'
+import SubjectComingSoon from './components/SubjectComingSoon.vue'
 import AppFooter from './components/AppFooter.vue'
 import SidebarToggle from './components/SidebarToggle.vue'
+import SubjectSwitcher from './components/SubjectSwitcher.vue'
+import NavBrand from './components/NavBrand.vue'
+import PageBreadcrumb from './components/PageBreadcrumb.vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
@@ -80,11 +85,22 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <HomeLanding v-if="frontmatter.customHome" />
+  <StudentLanding v-if="frontmatter.customRoot" />
+  <HomeLanding v-else-if="frontmatter.customHome" />
+  <SubjectComingSoon v-else-if="frontmatter.customSoon" :subject="frontmatter.subject" />
   <template v-else>
     <!-- SidebarToggle rendered here (position:fixed) — not inside a VitePress slot -->
     <SidebarToggle />
     <Layout>
+      <template #nav-bar-title-before>
+        <NavBrand />
+      </template>
+      <template #nav-bar-content-before>
+        <SubjectSwitcher activeSubjectId="physics" />
+      </template>
+      <template #doc-before>
+        <PageBreadcrumb />
+      </template>
       <template #layout-bottom>
         <AppFooter />
       </template>

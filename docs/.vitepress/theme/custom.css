@@ -1,5 +1,48 @@
 /* Physics Companion — mobile-first theme + animated icons */
 
+/* ────────────────────────────────────────────────────────
+   NAVBAR — industry-standard spacing + waffle right-pinned
+   ──────────────────────────────────────────────────────── */
+
+/* Gap between hamburger and brand area */
+.VPNavBar .VPNavBarHamburger { margin-right: 6px; }
+
+/* Brand title: slightly bolder, tighter kerning */
+.VPNavBarTitle .title {
+  padding: 0 4px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* NavBrand icon sits flush left of the title text */
+.VPNavBarTitle { display: flex; align-items: center; gap: 6px; }
+
+/* content-body holds [nav-bar-content-before slot] + nav links */
+.VPNavBar .content .content-body {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 8px;
+}
+
+/* Waffle always pins to the right regardless of page type or sidebar state.
+   margin-left: auto pushes it past any elements VitePress adds before it. */
+.VPNavBar .ss-wrap {
+  margin-left: auto;
+}
+
+/* Hide VitePress's built-in appearance toggle — we put it inside the waffle */
+.VPNavBar .VPNavBarAppearance { display: none !important; }
+
+/* ── App-wide font — driven by --app-font-family (set from site.config.json active font) ── */
+:root {
+  --vp-font-family-base: var(--app-font-family, system-ui, sans-serif);
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+body {
+  font-family: var(--app-font-family, system-ui, sans-serif) !important;
+}
+
 /* ── Sidebar toggle (desktop ≥960px only) ── */
 
 /*

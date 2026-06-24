@@ -1,22 +1,25 @@
 <script setup lang="ts">
 import PhysicsAnim from './PhysicsAnim.vue'
+import SubjectHeader from './SubjectHeader.vue'
+import SubjectFooter from './SubjectFooter.vue'
+import PageBreadcrumb from './PageBreadcrumb.vue'
 
 const chapters = [
-  { num: 1,  title: 'Physical World',             path: '/chapters/ch01-physical-world/' },
-  { num: 2,  title: 'Units & Measurement',         path: '/chapters/ch02-units-measurement/' },
-  { num: 3,  title: 'Motion in a Straight Line',   path: '/chapters/ch03-motion-straight-line/' },
-  { num: 4,  title: 'Motion in a Plane',           path: '/chapters/ch04-motion-plane/' },
-  { num: 5,  title: 'Laws of Motion',              path: '/chapters/ch05-laws-of-motion/' },
-  { num: 6,  title: 'Work, Energy & Power',        path: '/chapters/ch06-work-energy-power/' },
-  { num: 7,  title: 'Systems of Particles',        path: '/chapters/ch07-systems-particles/' },
-  { num: 8,  title: 'Gravitation',                 path: '/chapters/ch08-gravitation/' },
-  { num: 9,  title: 'Mechanical Properties of Solids', path: '/chapters/ch09-mechanical-properties-solids/' },
-  { num: 10, title: 'Mechanical Properties of Fluids', path: '/chapters/ch10-mechanical-properties-fluids/' },
-  { num: 11, title: 'Thermal Properties of Matter', path: '/chapters/ch11-thermal-properties/' },
-  { num: 12, title: 'Thermodynamics',              path: '/chapters/ch12-thermodynamics/' },
-  { num: 13, title: 'Kinetic Theory',              path: '/chapters/ch13-kinetic-theory/' },
-  { num: 14, title: 'Oscillations',                path: '/chapters/ch14-oscillations/' },
-  { num: 15, title: 'Waves',                       path: '/chapters/ch15-waves/' },
+  { num: 1,  title: 'Physical World',             path: '/physics/chapters/ch01-physical-world/' },
+  { num: 2,  title: 'Units & Measurement',         path: '/physics/chapters/ch02-units-measurement/' },
+  { num: 3,  title: 'Motion in a Straight Line',   path: '/physics/chapters/ch03-motion-straight-line/' },
+  { num: 4,  title: 'Motion in a Plane',           path: '/physics/chapters/ch04-motion-plane/' },
+  { num: 5,  title: 'Laws of Motion',              path: '/physics/chapters/ch05-laws-of-motion/' },
+  { num: 6,  title: 'Work, Energy & Power',        path: '/physics/chapters/ch06-work-energy-power/' },
+  { num: 7,  title: 'Systems of Particles',        path: '/physics/chapters/ch07-systems-particles/' },
+  { num: 8,  title: 'Gravitation',                 path: '/physics/chapters/ch08-gravitation/' },
+  { num: 9,  title: 'Mechanical Properties of Solids', path: '/physics/chapters/ch09-mechanical-properties-solids/' },
+  { num: 10, title: 'Mechanical Properties of Fluids', path: '/physics/chapters/ch10-mechanical-properties-fluids/' },
+  { num: 11, title: 'Thermal Properties of Matter', path: '/physics/chapters/ch11-thermal-properties/' },
+  { num: 12, title: 'Thermodynamics',              path: '/physics/chapters/ch12-thermodynamics/' },
+  { num: 13, title: 'Kinetic Theory',              path: '/physics/chapters/ch13-kinetic-theory/' },
+  { num: 14, title: 'Oscillations',                path: '/physics/chapters/ch14-oscillations/' },
+  { num: 15, title: 'Waves',                       path: '/physics/chapters/ch15-waves/' },
 ]
 
 const features = [
@@ -30,18 +33,14 @@ const features = [
 <template>
   <div class="hl-root">
     <!-- ── NAV ── -->
-    <header class="hl-nav">
-      <div class="hl-nav-inner">
-        <a href="/" class="hl-logo">
-          <span class="hl-logo-icon">⚛</span>
-          <span class="hl-logo-text">Physics Companion</span>
-        </a>
-        <nav class="hl-nav-links">
-          <a href="/chapters/">Chapters</a>
-        </nav>
-        <a href="/chapters/" class="hl-cta-sm">Start →</a>
-      </div>
-    </header>
+    <SubjectHeader subjectId="physics" chaptersLink="/physics/chapters/">
+      <template #cta>
+        <a href="/physics/chapters/" class="hl-cta-sm">Start →</a>
+      </template>
+    </SubjectHeader>
+
+    <!-- ── BREADCRUMB ── -->
+    <PageBreadcrumb subjectId="physics" />
 
     <!-- ── HERO ── -->
     <section class="hl-hero">
@@ -51,8 +50,8 @@ const features = [
           <h1 class="hl-h1">Physics that<br><span class="hl-accent">makes sense</span></h1>
           <p class="hl-tagline">Concept first. Formula second.<br>One real example. Then you own it.</p>
           <div class="hl-hero-actions">
-            <a href="/chapters/" class="hl-btn-primary">Start Learning →</a>
-            <a href="/chapters/01-units-and-measurement/dimensional-analysis" class="hl-btn-ghost">Try a Lesson</a>
+            <a href="/physics/chapters/" class="hl-btn-primary">Start Learning →</a>
+            <a href="/physics/chapters/01-units-and-measurement/dimensional-analysis" class="hl-btn-ghost">Try a Lesson</a>
           </div>
           <div class="hl-exam-tags">
             <span>JEE Main</span><span>JEE Advanced</span><span>KCET / KEA</span><span>Karnataka PU Board</span>
@@ -81,15 +80,7 @@ const features = [
     </section>
 
     <!-- ── FOOTER ── -->
-    <footer class="hl-footer">
-      <div class="hl-footer-inner">
-        <div class="hl-footer-brand">
-          <span>⚛</span>
-          <span>Physics Companion</span>
-        </div>
-        <p class="hl-footer-copy">© 2025 Physics Companion · For students By students</p>
-      </div>
-    </footer>
+    <SubjectFooter subjectId="physics" />
   </div>
 </template>
 
