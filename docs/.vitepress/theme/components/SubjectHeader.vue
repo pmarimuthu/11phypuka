@@ -15,27 +15,20 @@ const widgets = HEADER_WIDGETS
 <template>
   <header class="sh-nav">
     <div class="sh-inner">
-
-      <!-- Logo: subject icon + "Subject Companion" → subject home (always shown) -->
       <a :href="subject.path" class="sh-logo">
         <SubjectIcon :subjectId="subjectId" :size="24" />
         <span class="sh-logo-text">{{ subject.name }} Companion</span>
       </a>
 
-      <!-- Chapters link -->
       <nav v-if="widgets.includes('chaptersLink') && chaptersLink" class="sh-links">
         <a :href="chaptersLink">Chapters</a>
       </nav>
 
-      <!-- Push right -->
       <div class="sh-spacer" />
 
-      <!-- Subject switcher (waffle) -->
       <SubjectSwitcher v-if="widgets.includes('subjectSwitcher')" :activeSubjectId="subjectId" />
 
-      <!-- CTA slot (e.g. "Start →" button) -->
       <slot v-if="widgets.includes('ctaButton')" name="cta" />
-
     </div>
   </header>
 </template>
@@ -56,7 +49,6 @@ const widgets = HEADER_WIDGETS
   display: flex; align-items: center; gap: 8px;
   text-decoration: none; flex-shrink: 0;
 }
-.sh-logo-icon { font-size: 1.2rem; line-height: 1; }
 .sh-logo-text {
   font-weight: 800; font-size: 0.95rem;
   color: var(--vp-c-text-1); letter-spacing: -0.01em;

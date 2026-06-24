@@ -1,21 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vitepress'
-import { subjectFromPath, SITE, FOOTER_WIDGETS } from '../subjects'
-import VisitorCounter from './VisitorCounter.vue'
+import { subjectFromPath, SITE } from '../subjects'
 
-const route = useRoute()
+const route   = useRoute()
 const subject = computed(() => subjectFromPath(route.path))
-const widgets = FOOTER_WIDGETS
 </script>
 
 <template>
   <footer class="app-footer">
     <div class="af-inner">
-      <div v-if="widgets.includes('copyright')" class="af-copy">
+      <div class="af-copy">
         © {{ SITE.copyrightYear }} {{ subject.name }} Companion · {{ SITE.copyrightSuffix }}
       </div>
-      <VisitorCounter v-if="widgets.includes('visitorCounter')" />
     </div>
   </footer>
 </template>

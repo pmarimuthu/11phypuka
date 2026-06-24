@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Student Companion",
+    "name": "Student's Companion",
     "copyrightYear": 2026,
     "copyrightSuffix": "For students By students"
   },
@@ -100,6 +100,6 @@
     "widgets": ["subjectSwitcher", "chaptersLink", "ctaButton"]
   },
   "footer": {
-    "widgets": ["copyright", "visitorCounter"]
+    "widgets": ["copyright"]
   }
 }

@@ -83,7 +83,7 @@ export default defineConfig({
   description:
     'Class 11 Physics made simple — concept first, then formula. Real-world examples, interactive animations, home experiments. NCERT syllabus for Karnataka PU, JEE Main, JEE Advanced, KCET.',
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false,
 
   /* ── Sitemap ─────────────────────────────────────────────── */
   sitemap: {

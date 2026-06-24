@@ -1,27 +1,35 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { SUBJECTS_LIST, SITE } from '../subjects'
 import SubjectIcon from './SubjectIcon.vue'
+
+const LS_CLASS   = 'sc:selectedClass'
+const LS_SUBJECT = 'sc:selectedSubject'
 
 const classes = [
   { id: 'c11', label: 'Class 11' },
   { id: 'c12', label: 'Class 12', soon: true },
 ]
 
-// All subjects from config — map to selector shape
 const subjectsByClass: Record<string, typeof SUBJECTS_LIST> = {
   c11: SUBJECTS_LIST,
   c12: [],
 }
 
-const selectedClass   = ref<string | null>(null)
-const selectedSubject = ref<string | null>(null)
+// Restore last selection, fall back to Class 11 + Physics
+const savedClass   = typeof localStorage !== 'undefined' ? localStorage.getItem(LS_CLASS)   : null
+const savedSubject = typeof localStorage !== 'undefined' ? localStorage.getItem(LS_SUBJECT) : null
+
+const selectedClass   = ref<string | null>(savedClass   ?? 'c11')
+const selectedSubject = ref<string | null>(savedSubject ?? 'physics')
+
+watch(selectedClass,   v => { if (typeof localStorage !== 'undefined') localStorage.setItem(LS_CLASS,   v ?? '') })
+watch(selectedSubject, v => { if (typeof localStorage !== 'undefined') localStorage.setItem(LS_SUBJECT, v ?? '') })
 
 const currentSubjects = computed(() =>
   selectedClass.value ? (subjectsByClass[selectedClass.value] ?? SUBJECTS_LIST) : SUBJECTS_LIST
 )
 
-// Enabled only when BOTH class and subject are explicitly chosen
 const startPath = computed(() => {
   if (!selectedClass.value || !selectedSubject.value) return null
   const sub = currentSubjects.value.find(s => s.id === selectedSubject.value)
@@ -30,17 +38,28 @@ const startPath = computed(() => {
 
 function selectClass(id: string) {
   if (selectedClass.value === id) {
-    selectedClass.value = null   // toggle off
+    selectedClass.value = null
     selectedSubject.value = null
   } else {
     selectedClass.value = id
-    selectedSubject.value = null // reset subject on class change
+    selectedSubject.value = null
   }
 }
 
 function go() {
   if (startPath.value) window.location.href = startPath.value
 }
+
+const isDark = ref(false)
+onMounted(() => {
+  isDark.value = document.documentElement.classList.contains('dark')
+})
+function toggleDark() {
+  isDark.value = !isDark.value
+  document.documentElement.classList.toggle('dark', isDark.value)
+  localStorage.setItem('vitepress-theme-appearance', isDark.value ? 'dark' : 'light')
+}
+
 </script>
 
 <template>
@@ -54,70 +73,27 @@ function go() {
       <!-- ── LOGO ── -->
       <div class="sl-logo-wrap">
         <div class="sl-logo-mark">
-          <!-- Book with atom orbit — SVG logo -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="sl-svg-logo">
-            <!-- Book body -->
-            <rect x="10" y="18" width="26" height="34" rx="3" fill="url(#bookGrad)" opacity="0.95"/>
-            <rect x="14" y="22" width="18" height="2.5" rx="1.2" fill="white" opacity="0.6"/>
-            <rect x="14" y="27" width="14" height="2" rx="1" fill="white" opacity="0.4"/>
-            <rect x="14" y="32" width="16" height="2" rx="1" fill="white" opacity="0.4"/>
-            <!-- Book spine -->
-            <rect x="8" y="18" width="4" height="34" rx="2" fill="url(#spineGrad)"/>
-            <!-- Atom nucleus -->
-            <circle cx="54" cy="36" r="4" fill="url(#atomGrad)"/>
-            <!-- Orbit 1 -->
-            <ellipse cx="54" cy="36" rx="14" ry="6" stroke="url(#orbitGrad1)" stroke-width="1.8" fill="none" transform="rotate(-30 54 36)"/>
-            <!-- Orbit 2 -->
-            <ellipse cx="54" cy="36" rx="14" ry="6" stroke="url(#orbitGrad2)" stroke-width="1.8" fill="none" transform="rotate(30 54 36)"/>
-            <!-- Orbit 3 (horizontal) -->
-            <ellipse cx="54" cy="36" rx="14" ry="6" stroke="url(#orbitGrad3)" stroke-width="1.8" fill="none"/>
-            <!-- Electron dots -->
-            <circle cx="68" cy="36" r="2.2" fill="#06b6d4"/>
-            <circle cx="47" cy="43" r="2.2" fill="#8b5cf6"/>
-            <circle cx="47" cy="29" r="2.2" fill="#10b981"/>
-            <!-- Connector line book→atom -->
-            <line x1="36" y1="35" x2="46" y2="36" stroke="url(#connGrad)" stroke-width="1.5" stroke-dasharray="2 2"/>
-            <defs>
-              <linearGradient id="bookGrad" x1="10" y1="18" x2="36" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#3b82f6"/>
-                <stop offset="100%" stop-color="#6366f1"/>
-              </linearGradient>
-              <linearGradient id="spineGrad" x1="8" y1="18" x2="12" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#2563eb"/>
-                <stop offset="100%" stop-color="#4f46e5"/>
-              </linearGradient>
-              <linearGradient id="atomGrad" x1="50" y1="32" x2="58" y2="40" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#f59e0b"/>
-                <stop offset="100%" stop-color="#ef4444"/>
-              </linearGradient>
-              <linearGradient id="orbitGrad1" x1="40" y1="30" x2="68" y2="42" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.4"/>
-              </linearGradient>
-              <linearGradient id="orbitGrad2" x1="40" y1="30" x2="68" y2="42" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.4"/>
-              </linearGradient>
-              <linearGradient id="orbitGrad3" x1="40" y1="30" x2="68" y2="42" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#10b981" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.4"/>
-              </linearGradient>
-              <linearGradient id="connGrad" x1="36" y1="35" x2="46" y2="36" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#6366f1" stop-opacity="0.6"/>
-                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.6"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <span class="sl-logo-emoji">📚</span>
         </div>
         <div class="sl-logo-text">
-          <span class="sl-logo-name">Student Companion</span>
-          <span class="sl-logo-tagline">Learn smarter, not harder</span>
+          <span class="sl-logo-name">Student's Companion</span>
+          <span class="sl-logo-tagline">Learn it. Get it. Ace it.</span>
         </div>
       </div>
 
       <!-- ── CARD ── -->
       <div class="sl-card">
-        <p class="sl-card-label">Select your class</p>
+        <div class="sl-row-header">
+          <p class="sl-card-label">Select your class</p>
+          <button class="sl-dark-toggle" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'" @click="toggleDark">
+            <svg v-if="isDark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M10 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm4.22 2.78a1 1 0 0 1 0 1.42l-.71.7a1 1 0 1 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0ZM17 9a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2h1Zm-2.78 5.22a1 1 0 0 1-1.42 0l-.7-.71a1 1 0 1 1 1.41-1.41l.71.7a1 1 0 0 1 0 1.42ZM11 16a1 1 0 1 1-2 0v-1a1 1 0 1 1 2 0v1Zm-5.22-1.78a1 1 0 0 1 0-1.42l.71-.7a1 1 0 1 1 1.41 1.41l-.7.71a1 1 0 0 1-1.42 0ZM4 11a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2H4Zm1.78-6.22a1 1 0 0 1 1.42 0l.7.71A1 1 0 1 1 6.49 6.9l-.71-.7a1 1 0 0 1 0-1.42ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+            </svg>
+            <svg v-else viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586Z"/>
+            </svg>
+          </button>
+        </div>
         <div class="sl-pill-group">
           <button
             v-for="c in classes"
@@ -224,9 +200,9 @@ function go() {
   justify-content: center;
   box-shadow: 0 8px 32px rgba(59,130,246,0.15), 0 2px 8px rgba(0,0,0,0.08);
 }
-.sl-svg-logo {
-  width: 72px;
-  height: 72px;
+.sl-logo-emoji {
+  font-size: 48px;
+  line-height: 1;
 }
 .sl-logo-text {
   display: flex;
@@ -266,6 +242,31 @@ function go() {
   color: var(--vp-c-text-3);
   margin: 4px 0 0;
 }
+
+/* ── CLASS ROW HEADER ── */
+.sl-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 0;
+}
+.sl-row-header .sl-card-label { margin: 0; }
+.sl-dark-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.sl-dark-toggle:hover { color: var(--vp-c-text-1); background: var(--vp-c-bg-alt); }
+.sl-dark-toggle svg { width: 14px; height: 14px; }
 
 /* ── CLASS PILLS ── */
 .sl-pill-group {
