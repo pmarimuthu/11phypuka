@@ -298,17 +298,28 @@ function toggleDark() {
   transition: border-color 0.15s, background 0.15s;
   text-align: left;
   position: relative;
+  min-width: 0;
 }
 .sl-subj-btn.active {
   border-color: var(--vp-c-brand-1);
   background: color-mix(in srgb, var(--vp-c-brand-1) 8%, var(--vp-c-bg));
 }
 .sl-subj-btn.soon { opacity: 0.75; }
-.sl-subj-icon { font-size: 1.3rem; line-height: 1; }
+.sl-subj-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; }
 .sl-subj-label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--vp-c-text-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .sl-card { padding: 20px 14px 18px; }
+  .sl-subject-grid { gap: 6px; }
+  .sl-subj-btn { padding: 10px 10px; gap: 6px; }
+  .sl-subj-label { font-size: 0.78rem; }
 }
 
 .sl-soon {
