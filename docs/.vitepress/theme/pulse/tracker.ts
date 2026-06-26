@@ -83,7 +83,8 @@ export async function saveRating(
   fingerprintId: string,
   score: number
 ): Promise<void> {
-  await addDoc(collection(db, PROJECTS, projectId, 'ratings'), {
+  const id = `${fingerprintId}_${pageKey}`
+  await setDoc(doc(db, PROJECTS, projectId, 'ratings', id), {
     pageKey,
     fingerprintId,
     score,
