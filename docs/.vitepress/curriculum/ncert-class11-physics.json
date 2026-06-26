@@ -1,0 +1,164 @@
+{
+  "base": "/ncert/class11/physics",
+  "chapters": [
+    {
+      "id": "01-units-and-measurement",
+      "title": "Ch 1 — Units & Measurement",
+      "lessons": [
+        { "id": "physical-quantities-and-si-units", "title": "Physical Quantities & SI Units" },
+        { "id": "significant-figures",              "title": "Significant Figures" },
+        { "id": "dimensions-of-physical-quantities","title": "Dimensions of Physical Quantities" },
+        { "id": "dimensional-analysis",             "title": "Dimensional Analysis" }
+      ]
+    },
+    {
+      "id": "02-motion-in-a-straight-line",
+      "title": "Ch 2 — Motion in a Straight Line",
+      "lessons": [
+        { "id": "displacement",       "title": "Position, Displacement & Path Length" },
+        { "id": "velocity-and-speed", "title": "Velocity & Speed" },
+        { "id": "acceleration",       "title": "Acceleration" },
+        { "id": "equations-of-motion","title": "Equations of Motion" },
+        { "id": "relative-velocity",  "title": "Relative Velocity" }
+      ]
+    },
+    {
+      "id": "03-motion-in-a-plane",
+      "title": "Ch 3 — Motion in a Plane",
+      "lessons": [
+        { "id": "scalars-and-vectors",    "title": "Scalars and Vectors" },
+        { "id": "vector-addition",        "title": "Vector Addition" },
+        { "id": "vector-components",      "title": "Components of a Vector" },
+        { "id": "unit-vectors",           "title": "Unit Vectors" },
+        { "id": "relative-velocity-2d",   "title": "Relative Velocity in 2D" },
+        { "id": "projectile-motion",      "title": "Projectile Motion" },
+        { "id": "uniform-circular-motion","title": "Uniform Circular Motion" }
+      ]
+    },
+    {
+      "id": "04-laws-of-motion",
+      "title": "Ch 4 — Laws of Motion",
+      "lessons": [
+        { "id": "inertia-and-first-law",       "title": "Inertia & the First Law" },
+        { "id": "momentum-and-second-law",     "title": "Momentum & the Second Law" },
+        { "id": "impulse",                     "title": "Impulse" },
+        { "id": "third-law",                   "title": "The Third Law" },
+        { "id": "conservation-of-momentum",    "title": "Conservation of Momentum" },
+        { "id": "equilibrium-of-a-particle",   "title": "Equilibrium of a Particle" },
+        { "id": "friction",                    "title": "Friction" },
+        { "id": "circular-motion",             "title": "Circular Motion" }
+      ]
+    },
+    {
+      "id": "05-work-energy-power",
+      "title": "Ch 5 — Work, Energy and Power",
+      "lessons": [
+        { "id": "work",                   "title": "Work" },
+        { "id": "kinetic-energy",         "title": "Kinetic Energy & Work–Energy Theorem" },
+        { "id": "potential-energy",       "title": "Potential Energy" },
+        { "id": "conservation-of-energy", "title": "Conservation of Mechanical Energy" },
+        { "id": "power",                  "title": "Power" },
+        { "id": "collisions",             "title": "Collisions" }
+      ]
+    },
+    {
+      "id": "06-system-of-particles-rotational-motion",
+      "title": "Ch 6 — Rotational Motion",
+      "lessons": [
+        { "id": "centre-of-mass",    "title": "Centre of Mass" },
+        { "id": "torque",            "title": "Torque" },
+        { "id": "angular-momentum",  "title": "Angular Momentum" },
+        { "id": "moment-of-inertia", "title": "Moment of Inertia" },
+        { "id": "rolling-motion",    "title": "Rolling Motion" }
+      ]
+    },
+    {
+      "id": "07-gravitation",
+      "title": "Ch 7 — Gravitation",
+      "lessons": [
+        { "id": "universal-law",            "title": "Universal Law of Gravitation" },
+        { "id": "gravitational-field",      "title": "Gravitational Field & Potential" },
+        { "id": "escape-velocity",          "title": "Escape Velocity" },
+        { "id": "satellites",               "title": "Satellites & Orbital Motion" },
+        { "id": "mission-launch-a-satellite","title": "Mission: Launch a Satellite" },
+        { "id": "keplers-laws",             "title": "Kepler's Laws" }
+      ]
+    },
+    {
+      "id": "08-mechanical-properties-of-solids",
+      "title": "Ch 8 — Properties of Solids",
+      "lessons": [
+        { "id": "stress-and-strain",  "title": "Stress and Strain" },
+        { "id": "hookes-law",         "title": "Hooke's Law" },
+        { "id": "elastic-moduli",     "title": "Elastic Moduli" },
+        { "id": "stress-strain-curve","title": "Stress–Strain Curve" },
+        { "id": "applications",       "title": "Applications of Elasticity" }
+      ]
+    },
+    {
+      "id": "09-mechanical-properties-of-fluids",
+      "title": "Ch 9 — Properties of Fluids",
+      "lessons": [
+        { "id": "pressure-pascals-law",  "title": "Pressure & Pascal's Law" },
+        { "id": "archimedes-principle",  "title": "Archimedes' Principle" },
+        { "id": "viscosity",             "title": "Viscosity & Stokes' Law" },
+        { "id": "surface-tension",       "title": "Surface Tension" },
+        { "id": "bernoullis-theorem",    "title": "Bernoulli's Theorem" }
+      ]
+    },
+    {
+      "id": "10-thermal-properties-of-matter",
+      "title": "Ch 10 — Thermal Properties",
+      "lessons": [
+        { "id": "temperature-and-heat",    "title": "Temperature & Heat" },
+        { "id": "thermal-expansion",       "title": "Thermal Expansion" },
+        { "id": "calorimetry",             "title": "Calorimetry" },
+        { "id": "heat-transfer",           "title": "Heat Transfer" },
+        { "id": "newtons-law-of-cooling",  "title": "Newton's Law of Cooling" }
+      ]
+    },
+    {
+      "id": "11-thermodynamics",
+      "title": "Ch 11 — Thermodynamics",
+      "lessons": [
+        { "id": "first-law",                "title": "Zeroth & First Law" },
+        { "id": "thermodynamic-processes",  "title": "Thermodynamic Processes" },
+        { "id": "second-law",               "title": "Second Law & Entropy" },
+        { "id": "heat-engines",             "title": "Heat Engines & Refrigerators" },
+        { "id": "carnot-theorem",           "title": "Carnot Theorem" }
+      ]
+    },
+    {
+      "id": "12-kinetic-theory",
+      "title": "Ch 12 — Kinetic Theory",
+      "lessons": [
+        { "id": "kinetic-theory-gases", "title": "Kinetic Theory of Gases" },
+        { "id": "speed-of-molecules",   "title": "Speed of Gas Molecules" },
+        { "id": "equipartition",        "title": "Law of Equipartition of Energy" },
+        { "id": "mean-free-path",       "title": "Mean Free Path" }
+      ]
+    },
+    {
+      "id": "13-oscillations",
+      "title": "Ch 13 — Oscillations",
+      "lessons": [
+        { "id": "simple-harmonic-motion","title": "Periodic Motion & SHM" },
+        { "id": "energy-in-shm",        "title": "Energy in SHM" },
+        { "id": "simple-pendulum",      "title": "Simple Pendulum" },
+        { "id": "damped-oscillations",  "title": "Damped Oscillations" },
+        { "id": "resonance",            "title": "Forced Oscillations & Resonance" }
+      ]
+    },
+    {
+      "id": "14-waves",
+      "title": "Ch 14 — Waves",
+      "lessons": [
+        { "id": "wave-motion",   "title": "Wave Motion" },
+        { "id": "speed-of-waves","title": "Speed of a Wave" },
+        { "id": "standing-waves","title": "Superposition & Standing Waves" },
+        { "id": "beats",         "title": "Beats" },
+        { "id": "doppler-effect","title": "Doppler Effect" }
+      ]
+    }
+  ]
+}

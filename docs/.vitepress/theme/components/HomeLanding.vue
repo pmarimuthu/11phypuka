@@ -16,7 +16,7 @@ const features = [
 <template>
   <div class="hl-root">
 
-    <SubjectHeader subjectId="physics" chaptersLink="/physics/chapters/" />
+    <SubjectHeader subjectId="physics" chaptersLink="/ncert/class11/physics/chapters/" />
 
     <SubjectHero
       badge="Class 11 · NCERT · CBSE"
@@ -24,9 +24,9 @@ const features = [
       accent="makes sense"
       tagline="Concept first. Formula second. One real example. Then you own it."
       primaryLabel="Start Learning →"
-      primaryLink="/physics/chapters/"
+      primaryLink="/ncert/class11/physics/chapters/"
       secondaryLabel="Try a Lesson"
-      secondaryLink="/physics/chapters/01-units-and-measurement/dimensional-analysis"
+      secondaryLink="/ncert/class11/physics/chapters/01-units-and-measurement/dimensional-analysis"
       :exams="['IIT', 'JEE', 'NEET']"
     >
       <template #animation>

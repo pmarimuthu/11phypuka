@@ -1,0 +1,13 @@
+{
+  "ncert": {
+    "class11": {
+      "physics":   "curriculum/ncert-class11-physics.json",
+      "chemistry": "curriculum/ncert-class11-chemistry.json",
+      "maths":     "curriculum/ncert-class11-maths.json",
+      "biology":   "curriculum/ncert-class11-biology.json"
+    },
+    "class12": {
+      "physics":   "curriculum/ncert-class12-physics.json"
+    }
+  }
+}
