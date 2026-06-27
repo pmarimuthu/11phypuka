@@ -1,13 +1,24 @@
 <script setup lang="ts">
 import WasmHero from './WasmHero.vue'
 import FeelHero from './FeelHero.vue'
+import ExploreHero from './ExploreHero.vue'
 import MeasurementLab from './labs/MeasurementLab.vue'
-import SpeedDistanceLab from './labs/SpeedDistanceLab.vue'
-import HookesLawLab from './labs/HookesLawLab.vue'
-import ElasticModuliLab from './labs/ElasticModuliLab.vue'
-import StressStrainLab from './labs/StressStrainLab.vue'
-import ApplicationsLab from './labs/ApplicationsLab.vue'
 import PascalLab from './labs/PascalLab.vue'
+import BernoulliLab from './labs/BernoulliLab.vue'
+import Ch01Lab from './labs/Ch01Lab.vue'
+import Ch02Lab from './labs/Ch02Lab.vue'
+import Ch03Lab from './labs/Ch03Lab.vue'
+import Ch04Lab from './labs/Ch04Lab.vue'
+import Ch05Lab from './labs/Ch05Lab.vue'
+import Ch06Lab from './labs/Ch06Lab.vue'
+import Ch07Lab from './labs/Ch07Lab.vue'
+import Ch08Lab from './labs/Ch08Lab.vue'
+import Ch09Lab from './labs/Ch09Lab.vue'
+import Ch10Lab from './labs/Ch10Lab.vue'
+import Ch11Lab from './labs/Ch11Lab.vue'
+import Ch12Lab from './labs/Ch12Lab.vue'
+import Ch13Lab from './labs/Ch13Lab.vue'
+import Ch14Lab from './labs/Ch14Lab.vue'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import CAPTIONS from '../data/concept-captions.json'
 import conceptConfig from '../data/concept-config.json'
@@ -64,65 +75,29 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
         </div>
       <WasmHero v-if="hasWasm && (tab === 'wasm' || tab === 'three')"
                 :type="type" :active-tab="tab" />
-      <div v-else-if="tab === 'wasm' || tab === 'three'" class="visualise-empty">No Content</div>
+      <ExploreHero v-else-if="tab === 'wasm'" :type="type" />
+      <div v-else-if="tab === 'three'" class="visualise-empty">No Content</div>
 
       <FeelHero v-if="hasFeel && tab === 'feel'" :type="type" />
 
-      <MeasurementLab
-        v-if="
-          tab === 'lab' &&
-          type === 'si-units'
-        "
-      />
-
-      <SpeedDistanceLab
-        v-else-if="
-          tab === 'lab' &&
-          type === 'velocity-speed'
-        "
-      />
-
-      <HookesLawLab
-        v-else-if="
-          tab === 'lab' &&
-          type === 'hookes-law'
-        "
-      />
-
-      <ElasticModuliLab
-        v-else-if="
-          tab === 'lab' &&
-          type === 'elastic-moduli'
-        "
-      />
-
-      <StressStrainLab
-        v-else-if="
-          tab === 'lab' &&
-          type === 'stress-strain-curve'
-        "
-      />
-
-      <ApplicationsLab
-        v-else-if="
-          tab === 'lab' &&
-          type === 'applications-elasticity'
-        "
-      />
-
-      <PascalLab
-        v-else-if="
-          tab === 'lab' &&
-          type === 'pressure'
-        "
-      />
-
-      <div
-        v-else-if="tab === 'lab'"
-        class="visualise-empty"
-      >
-        No Content
-      </div>
+      <MeasurementLab v-if="tab === 'lab' && type === 'si-units'" />
+      <PascalLab v-else-if="tab === 'lab' && type === 'pressure'" />
+      <BernoulliLab v-else-if="tab === 'lab' && type === 'bernoulli'" />
+      <Ch01Lab v-else-if="tab === 'lab' && ['significant-figures','dimensions','dimensional-analysis'].includes(type)" :type="type" />
+      <Ch02Lab v-else-if="tab === 'lab' && ['velocity-speed','displacement','acceleration','equations-of-motion','relative-velocity'].includes(type)" :type="type" />
+      <Ch03Lab v-else-if="tab === 'lab' && ['scalars-and-vectors','vector-addition','vector-components','unit-vectors','relative-velocity-2d','uniform-circular-motion'].includes(type)" :type="type" />
+      <Ch04Lab v-else-if="tab === 'lab' && ['inertia-first-law','momentum-second-law','impulse','third-law','conservation-of-momentum','equilibrium','friction','circular-motion'].includes(type)" :type="type" />
+      <Ch05Lab v-else-if="tab === 'lab' && ['work','kinetic-energy','potential-energy','conservation-of-energy','power','collisions'].includes(type)" :type="type" />
+      <Ch06Lab v-else-if="tab === 'lab' && ['centre-of-mass','torque','angular-momentum','moment-of-inertia','rolling-motion'].includes(type)" :type="type" />
+      <Ch07Lab v-else-if="tab === 'lab' && ['universal-law','gravitational-field','escape-velocity','keplers-laws','satellites'].includes(type)" :type="type" />
+      <Ch08Lab v-else-if="tab === 'lab' && ['stress-and-strain','hookes-law','elastic-moduli','stress-strain-curve','applications-elasticity'].includes(type)" :type="type" />
+      <Ch09Lab v-else-if="tab === 'lab' && ['archimedes','surface-tension','viscosity'].includes(type)" :type="type" />
+      <Ch10Lab v-else-if="tab === 'lab' && ['temperature-and-heat','thermal-expansion','calorimetry','heat-transfer','newtons-cooling'].includes(type)" :type="type" />
+      <Ch11Lab v-else-if="tab === 'lab' && ['thermodynamic-processes','first-law','second-law','heat-engine','carnot-theorem'].includes(type)" :type="type" />
+      <Ch12Lab v-else-if="tab === 'lab' && ['kinetic-theory','speed-of-molecules','equipartition','mean-free-path'].includes(type)" :type="type" />
+      <Ch13Lab v-else-if="tab === 'lab' && ['shm','simple-pendulum','energy-shm','damped-oscillations','resonance'].includes(type)" :type="type" />
+      <Ch14Lab v-else-if="tab === 'lab' && ['wave-motion','speed-of-waves','standing-waves','beats','doppler'].includes(type)" :type="type" />
+      <div v-else-if="tab === 'lab'" class="visualise-empty">No Content</div>
 
       <svg v-show="tab === 'svg'" viewBox="0 0 360 150" role="img" :aria-label="cap" xmlns="http://www.w3.org/2000/svg">
         <defs>

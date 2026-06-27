@@ -79,7 +79,8 @@
       "colorLight": "#6ee7b7",
       "path": "/ncert/class11/chemistry/",
       "chaptersPath": "/ncert/class11/chemistry/chapters/",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "visible": false
     },
     {
       "id": "maths",
@@ -91,7 +92,8 @@
       "colorLight": "#c4b5fd",
       "path": "/ncert/class11/maths/",
       "chaptersPath": "/ncert/class11/maths/chapters/",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "visible": false
     },
     {
       "id": "biology",
@@ -103,7 +105,8 @@
       "colorLight": "#86efac",
       "path": "/ncert/class11/biology/",
       "chaptersPath": "/ncert/class11/biology/chapters/",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "visible": false
     }
   ],
   "header": {

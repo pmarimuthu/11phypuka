@@ -147,6 +147,8 @@ defineProps<{
   padding: 16px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {

@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-
-const pick = ref(0)
-onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
+const { index } = defineProps<{ index: number }>()
 </script>
 
 <template>
   
-  <svg v-if="pick===0" viewBox="0 0 320 160" class="pa-svg" aria-label="Projectile motion">
+  <svg v-if="index===0" viewBox="0 0 320 160" class="pa-svg" aria-label="Projectile motion">
     <defs>
       <path id="para" d="M20,140 Q160,10 300,140" fill="none"/>
     </defs>
@@ -25,7 +22,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===1" viewBox="0 0 200 200" class="pa-svg" aria-label="Simple pendulum">
+  <svg v-else-if="index===1" viewBox="0 0 200 200" class="pa-svg" aria-label="Simple pendulum">
     <line x1="100" y1="10" x2="100" y2="15" stroke="var(--vp-c-text-2)" stroke-width="2"/>
     <rect x="80" y="10" width="40" height="6" rx="2" fill="var(--vp-c-bg-soft)" stroke="var(--vp-c-text-3)" stroke-width="1"/>
     <g style="transform-origin:100px 13px">
@@ -37,7 +34,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===2" viewBox="0 0 220 200" class="pa-svg" aria-label="Planetary orbit">
+  <svg v-else-if="index===2" viewBox="0 0 220 200" class="pa-svg" aria-label="Planetary orbit">
     <ellipse cx="110" cy="100" rx="90" ry="55" fill="none" stroke="#06b6d4" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
     
     <circle cx="72" cy="100" r="14" fill="#f59e0b">
@@ -64,7 +61,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===3" viewBox="0 0 240 180" class="pa-svg" aria-label="Newton's cradle">
+  <svg v-else-if="index===3" viewBox="0 0 240 180" class="pa-svg" aria-label="Newton's cradle">
     <line x1="50" y1="20" x2="190" y2="20" stroke="var(--vp-c-text-2)" stroke-width="2"/>
     
     <line x1="100" y1="20" x2="100" y2="120" stroke="var(--vp-c-text-3)" stroke-width="1"/>
@@ -89,7 +86,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===4" viewBox="0 0 320 120" class="pa-svg" aria-label="Wave propagation">
+  <svg v-else-if="index===4" viewBox="0 0 320 120" class="pa-svg" aria-label="Wave propagation">
     <defs>
       <clipPath id="wclip"><rect x="0" y="0" width="320" height="120"/></clipPath>
     </defs>
@@ -111,7 +108,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===5" viewBox="0 0 160 200" class="pa-svg" aria-label="Free fall">
+  <svg v-else-if="index===5" viewBox="0 0 160 200" class="pa-svg" aria-label="Free fall">
     <line x1="80" y1="10" x2="80" y2="180" stroke="var(--vp-c-text-3)" stroke-width="1" stroke-dasharray="3 3"/>
     <text x="95" y="50" font-size="8" fill="var(--vp-c-text-3)" font-family="monospace">v=gt</text>
     <text x="95" y="100" font-size="8" fill="var(--vp-c-text-3)" font-family="monospace">2v</text>
@@ -133,7 +130,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===6" viewBox="0 0 240 160" class="pa-svg" aria-label="Spring oscillation">
+  <svg v-else-if="index===6" viewBox="0 0 240 160" class="pa-svg" aria-label="Spring oscillation">
     <rect x="8" y="50" width="10" height="60" rx="2" fill="var(--vp-c-text-3)"/>
     
     <path fill="none" stroke="#10b981" stroke-width="2">
@@ -154,7 +151,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===7" viewBox="0 0 200 200" class="pa-svg" aria-label="Circular motion">
+  <svg v-else-if="index===7" viewBox="0 0 200 200" class="pa-svg" aria-label="Circular motion">
     <circle cx="100" cy="100" r="70" fill="none" stroke="var(--vp-c-text-3)" stroke-width="1" stroke-dasharray="3 3"/>
     <circle cx="100" cy="100" r="4" fill="var(--vp-c-text-2)"/>
     
@@ -176,7 +173,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===8" viewBox="0 0 320 160" class="pa-svg" aria-label="Doppler effect">
+  <svg v-else-if="index===8" viewBox="0 0 320 160" class="pa-svg" aria-label="Doppler effect">
     
     <circle r="8" fill="#f59e0b">
       <animateMotion dur="3s" repeatCount="indefinite" path="M40,80 L280,80"/>
@@ -213,7 +210,7 @@ onMounted(() => { pick.value = Math.floor(Math.random() * 10) })
   </svg>
 
   
-  <svg v-else-if="pick===9" viewBox="0 0 320 160" class="pa-svg" aria-label="Electromagnetic wave">
+  <svg v-else-if="index===9" viewBox="0 0 320 160" class="pa-svg" aria-label="Electromagnetic wave">
     <defs><clipPath id="emclip"><rect width="320" height="160"/></clipPath></defs>
     <g clip-path="url(#emclip)">
       

@@ -3,7 +3,7 @@ import SubjectHeader  from './SubjectHeader.vue'
 import SubjectHero    from './SubjectHero.vue'
 import FeatureCards   from './FeatureCards.vue'
 import SubjectFooter  from './SubjectFooter.vue'
-import PhysicsAnim    from './PhysicsAnim.vue'
+import AnimCarousel   from './AnimCarousel.vue'
 
 const features = [
   { icon: '💡', color: '#f59e0b', title: 'Concept First',  desc: 'Understand the "why" before touching a formula. Every topic starts with intuition.' },
@@ -30,7 +30,7 @@ const features = [
       :exams="['IIT', 'JEE', 'NEET']"
     >
       <template #animation>
-        <PhysicsAnim />
+        <AnimCarousel />
       </template>
     </SubjectHero>
 

@@ -20,13 +20,14 @@ export interface SubjectConfig {
   path: string
   chaptersPath: string
   status: 'active' | 'coming-soon'
+  visible?: boolean
 }
 
 export const SUBJECTS: Record<string, SubjectConfig> = Object.fromEntries(
   siteConfig.subjects.map(s => [s.id, s as SubjectConfig])
 )
 
-export const SUBJECTS_LIST: SubjectConfig[] = siteConfig.subjects as SubjectConfig[]
+export const SUBJECTS_LIST: SubjectConfig[] = (siteConfig.subjects as SubjectConfig[]).filter(s => s.visible !== false)
 
 export const SITE = siteConfig.site
 export const HEADER_WIDGETS: string[] = siteConfig.header.widgets

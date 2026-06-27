@@ -1,4 +1,19 @@
 {
   "wasmTypes": ["si-units", "projectile-motion"],
-  "feelTypes": ["si-units", "significant-figures", "dimensions", "dimensional-analysis"]
+  "feelTypes": [
+    "si-units", "significant-figures", "dimensions", "dimensional-analysis",
+    "velocity-speed", "displacement", "acceleration", "equations-of-motion", "relative-velocity",
+    "scalars-and-vectors", "vector-addition", "vector-components", "unit-vectors", "relative-velocity-2d", "projectile-motion", "uniform-circular-motion",
+    "inertia-first-law", "momentum-second-law", "impulse", "third-law", "conservation-of-momentum", "equilibrium", "friction", "circular-motion",
+    "work", "kinetic-energy", "potential-energy", "conservation-of-energy", "power", "collisions",
+    "centre-of-mass", "torque", "angular-momentum", "moment-of-inertia", "rolling-motion",
+    "universal-law", "gravitational-field", "escape-velocity", "keplers-laws", "satellites",
+    "stress-and-strain", "hookes-law", "elastic-moduli", "stress-strain-curve", "applications-elasticity",
+    "pressure", "archimedes", "bernoulli", "surface-tension", "viscosity",
+    "temperature-and-heat", "thermal-expansion", "calorimetry", "heat-transfer", "newtons-cooling",
+    "thermodynamic-processes", "first-law", "second-law", "heat-engine", "carnot-theorem",
+    "kinetic-theory", "speed-of-molecules", "equipartition", "mean-free-path",
+    "shm", "simple-pendulum", "energy-shm", "damped-oscillations", "resonance",
+    "wave-motion", "speed-of-waves", "standing-waves", "beats", "doppler"
+  ]
 }
